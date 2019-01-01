@@ -1,3 +1,5 @@
+require_relative 'logical_context'
+
 class Proposition
   attr_accessor :sentence, :variables
 
@@ -18,14 +20,15 @@ class Proposition
   end
 
   def evaluate
+    context = LogicalContext.new
+
     variables.each do |var|
-      define_singleton_method(var) do
-        true
-      end
+      context.define_premise(var, true)
     end
 
-    eval("lambda { " + sentence + " } ").call
+    context.truth_value(sentence)
   end
+
 
   def amount_of_variables
     2 ** variables.length
