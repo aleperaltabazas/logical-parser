@@ -1,6 +1,6 @@
 class LogicalContext
   def define_premise(premise, value)
-    define_singleton_method(premise.to_s) do
+    define_singleton_method(premise) do
       value
     end
   end
