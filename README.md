@@ -1,1 +1,1 @@
-# Logical Proposition Analyzer
+# Propositionla Logic Analyzer
