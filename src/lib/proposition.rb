@@ -17,6 +17,16 @@ class Proposition
     @variables = sentence.words.uniq
   end
 
+  def evaluate
+    variables.each do |var|
+      define_singleton_method(var) do
+        true
+      end
+    end
+
+    eval("lambda { " + sentence + " } ").call
+  end
+
   def amount_of_variables
     2 ** variables.length
   end
