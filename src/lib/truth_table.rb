@@ -24,6 +24,6 @@ class TruthTable
 
   def truth_value_of(variable, row)
     column = variables.find_index(variable)
-    table[column][row]
+    table.at(row).at(column)
   end
 end
