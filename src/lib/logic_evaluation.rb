@@ -1,6 +1,11 @@
+require_relative 'proposition'
+
 module LogicEvaluation
   def logic_value
-    eval('lambda { ' + self + ' } ').call
+    prop = Proposition.new(self)
+    prop.parse
+
+    prop.evaluate
   end
 end
 
