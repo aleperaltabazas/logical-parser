@@ -16,10 +16,10 @@ class TruthTable
         row.append(value)
       end
 
-      @table.append(row)
+      table.append(row)
     end
 
-    @table
+    table
   end
 
   def truth_value_of(variable, row)

@@ -1,4 +1,6 @@
 require_relative 'logical_context'
+require_relative 'exception'
+require_relative 'truth_table'
 
 class Proposition
   attr_accessor :sentence, :variables
@@ -16,19 +18,29 @@ class Proposition
   end
 
   def parse
-    @variables = sentence.split
+    @variables = sentence.words
   end
 
   def evaluate
     context = LogicalContext.new
+    values = []
+    table = TruthTable.new(variables)
+    table.generate_table
 
-    variables.each do |var|
-      context.define_premise(var, true)
+    for iteration in 0...amount_of_variables
+      variables.each do |var|
+        context.define_premise(var, table.truth_value_of(var, iteration))
+      end
+
+      values.append(context.truth_value(sentence))
     end
 
-    context.truth_value(sentence)
+    if values.include?(true) && values.include?(false)
+      raise Contingency
+    else
+      values.send(:all?)
+    end
   end
-
 
   def amount_of_variables
     2 ** variables.length

@@ -1,3 +1,5 @@
+require_relative '../lib/boolean'
+
 class LogicalContext
   def connectors
     %i[and or xor then if_and_only_if not]

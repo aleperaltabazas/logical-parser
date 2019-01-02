@@ -22,6 +22,10 @@ module Boolean
   def not
     !self
   end
+
+  alias_method(:>, :then)
+  alias_method(:<=>, :if_and_only_if)
+  alias_method(:!=, :xor)
 end
 
 class TrueClass
