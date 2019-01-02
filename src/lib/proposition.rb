@@ -16,7 +16,7 @@ class Proposition
   end
 
   def parse
-    @variables = sentence.words.uniq
+    @variables = sentence.split
   end
 
   def evaluate
