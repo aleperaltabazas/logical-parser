@@ -18,11 +18,12 @@ class Proposition
   end
 
   def syntax_sugars(sentence)
-    sentence.gsub(/and|&&/, '.and')
-            .gsub(/or|\|/, '.or')
-            .gsub(/then|>/, '.then')
-            .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
-            .gsub(/xor|!=/, '.xor')
+    sugared = sentence.gsub(/and|&&/, '.and')
+                      .gsub(/or|\|\|/, '.or')
+                      .gsub(/then|>/, '.then')
+                      .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
+                      .gsub(/xor|!=/, '.xor')
+                      .gsub(/not/, '!')
   end
 
   def parse

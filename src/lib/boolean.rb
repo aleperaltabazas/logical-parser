@@ -19,13 +19,17 @@ module Boolean
     self.then(other) && other.then(self)
   end
 
-  def not
-    !self
+  def not(expression = nil)
+    if expression.nil?
+      !self
+    else
+      !expression
+    end
   end
 
-  alias_method(:>, :then)
-  alias_method(:<=>, :if_and_only_if)
-  alias_method(:!=, :xor)
+  alias > :then
+  alias <=> if_and_only_if
+  alias != xor
 end
 
 class TrueClass

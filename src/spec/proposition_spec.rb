@@ -27,8 +27,8 @@ describe 'Proposition spec' do
     expect(prop.evaluate).to be_falsey
   end
 
-  it 'p and q should be false' do
-    prop = Proposition.new('p && !p')
+  it 'p and not p should be false' do
+    prop = Proposition.new('p and not p')
     prop.parse
 
     expect(prop.evaluate).to be_falsey

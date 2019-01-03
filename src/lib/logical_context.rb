@@ -26,4 +26,8 @@ class LogicalContext
   def !=(a, b)
     a.xor b
   end
+
+  def not(expression)
+    !expression
+  end
 end
