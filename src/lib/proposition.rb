@@ -6,7 +6,7 @@ class Proposition
   attr_accessor :sentence, :variables
 
   def initialize(sentence)
-    @sentence = sentence
+    @sentence = syntax_sugars(sentence)
 
     @sentence.define_singleton_method(:words) do
       split(/\W+/)
@@ -15,6 +15,14 @@ class Proposition
     @sentence.define_singleton_method(:operands) do
       split(/\s|\w|\s/).reject(&:empty?)
     end
+  end
+
+  def syntax_sugars(sentence)
+    sentence.gsub(/and|&&/, '.and')
+            .gsub(/or|\|/, '.or')
+            .gsub(/then|>/, '.then')
+            .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
+            .gsub(/xor|!=/, '.xor')
   end
 
   def parse
@@ -43,6 +51,6 @@ class Proposition
   end
 
   def amount_of_variables
-    2 ** variables.length
+    2**variables.length
   end
 end

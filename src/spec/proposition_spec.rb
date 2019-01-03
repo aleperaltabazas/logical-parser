@@ -5,7 +5,7 @@ require_relative '../lib/exception'
 describe 'Proposition spec' do
 
   it 'Only p should be a Contingency' do
-    prop = Proposition.new("p")
+    prop = Proposition.new('p')
     prop.parse
 
     expect do
@@ -14,14 +14,21 @@ describe 'Proposition spec' do
   end
 
   it '(p and q) then p should be true' do
-    prop = Proposition.new("(p && q) > p")
+    prop = Proposition.new('(p && q) > p')
     prop.parse
 
     expect(prop.evaluate).to be_truthy
   end
 
   it 'p and !p should be false' do
-    prop = Proposition.new("p && !p")
+    prop = Proposition.new('p && !p')
+    prop.parse
+
+    expect(prop.evaluate).to be_falsey
+  end
+
+  it 'p and q should be false' do
+    prop = Proposition.new('p && !p')
     prop.parse
 
     expect(prop.evaluate).to be_falsey
