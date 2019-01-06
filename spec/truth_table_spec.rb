@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../lib/truth_table'
+require_relative '../lib/logical_analyzer/truth_table'
 
 describe 'Truth Table spec' do
 
