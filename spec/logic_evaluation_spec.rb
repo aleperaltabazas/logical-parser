@@ -1,7 +1,7 @@
 require 'rspec'
-require_relative '../lib/logical_analyzer/logic_evaluation'
-require_relative '../lib/logical_analyzer/logical_context'
-require_relative '../lib/logical_analyzer/boolean'
+require_relative '../lib/logic_analyzer/logic_evaluation'
+require_relative '../lib/logic_analyzer/logical_context'
+require_relative '../lib/logic_analyzer/boolean'
 
 describe 'Logic Evaluation spec' do
   it 'p and q should be false' do

@@ -1,0 +1,6 @@
+require_relative 'logic_analyzer/boolean'
+require_relative 'logic_analyzer/exception'
+require_relative 'logic_analyzer/logic_evaluation'
+require_relative 'logic_analyzer/logical_context'
+require_relative 'logic_analyzer/proposition'
+require_relative 'logic_analyzer/truth_table'

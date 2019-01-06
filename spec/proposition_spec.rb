@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../lib/logical_analyzer/proposition'
-require_relative '../lib/logical_analyzer/exception'
+require_relative '../lib/logic_analyzer/proposition'
+require_relative '../lib/logic_analyzer/exception'
 
 describe 'Proposition spec' do
 

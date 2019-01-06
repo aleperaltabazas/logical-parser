@@ -1,6 +1,6 @@
 require 'rspec'
-require_relative '../lib/logical_analyzer/boolean'
-require_relative '../lib/logical_analyzer/logic_evaluation'
+require_relative '../lib/logic_analyzer/boolean'
+require_relative '../lib/logic_analyzer/logic_evaluation'
 
 describe 'Boolean spec' do
   it 'true and false should be false' do
