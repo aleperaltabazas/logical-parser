@@ -33,4 +33,11 @@ describe 'Proposition spec' do
 
     expect(prop.evaluate).to be_falsey
   end
+
+  it 'p <=> q and p xor q should be a contradiction' do
+    prop = Proposition.new('(p only_if q) and (p xor q)')
+    prop.parse
+
+    expect(prop.evaluate).to be_falsey
+  end
 end

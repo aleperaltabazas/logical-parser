@@ -15,16 +15,16 @@ class Proposition
 
   def syntax_sugars(sentence)
     sugared = sentence.gsub(/and|&&/, '.and')
-                  .gsub(/or|\|\|/, '.or')
+                  .gsub(/xor|!=/, '.x0r')
+                  .gsub(/\|\|/, '.or')
+                  .gsub(/only_if|<=>/, '.only_if')
                   .gsub(/then|>/, '.then')
-                  .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
-                  .gsub(/xor|!=/, '.xor')
                   .gsub(/not/, '!')
   end
 
   def parse
-    @variables = sentence.words.reject do |var|
-      %w[and or then if_and_only_if xor not].include?(var)
+    @variables = sentence.words.uniq.reject do |var|
+      %w[and or then only_if xor not].include?(var)
     end
   end
 

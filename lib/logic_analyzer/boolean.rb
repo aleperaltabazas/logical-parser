@@ -15,7 +15,7 @@ module Boolean
     !self || other
   end
 
-  def if_and_only_if(other)
+  def only_if(other)
     self.then(other) && other.then(self)
   end
 
@@ -27,9 +27,9 @@ module Boolean
     end
   end
 
-  alias > :then
-  alias <=> if_and_only_if
+  alias <=> only_if
   alias != xor
+  alias x0r xor
 end
 
 class TrueClass

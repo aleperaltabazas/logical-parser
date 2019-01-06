@@ -20,7 +20,7 @@ class LogicalContext
   end
 
   def <=>(a, b)
-    a.if_and_only_if b
+    a.only_if b
   end
 
   def !=(a, b)

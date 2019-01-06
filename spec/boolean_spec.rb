@@ -51,14 +51,14 @@ describe 'Boolean spec' do
   end
 
   it 'true if and only if false should be false' do
-    expect(true.if_and_only_if(false)).to be_falsey
+    expect(true.only_if(false)).to be_falsey
   end
 
   it 'true if and only if true should be true' do
-    expect(true.if_and_only_if(true)).to be_truthy
+    expect(true.only_if(true)).to be_truthy
   end
 
   it 'false if and only if false should be true' do
-    expect(false.if_and_only_if(false)).to be_truthy
+    expect(false.only_if(false)).to be_truthy
   end
 end
