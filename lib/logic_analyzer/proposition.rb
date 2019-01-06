@@ -9,25 +9,23 @@ class Proposition
     @sentence = syntax_sugars(sentence)
 
     @sentence.define_singleton_method(:words) do
-      split(/\W+/)
-    end
-
-    @sentence.define_singleton_method(:operands) do
-      split(/\s|\w|\s/).reject(&:empty?)
+      split(/\W+/).reject(&:empty?)
     end
   end
 
   def syntax_sugars(sentence)
     sugared = sentence.gsub(/and|&&/, '.and')
-                      .gsub(/or|\|\|/, '.or')
-                      .gsub(/then|>/, '.then')
-                      .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
-                      .gsub(/xor|!=/, '.xor')
-                      .gsub(/not/, '!')
+                  .gsub(/or|\|\|/, '.or')
+                  .gsub(/then|>/, '.then')
+                  .gsub(/if_and_only_if|<=>/, '.if_and_only_if')
+                  .gsub(/xor|!=/, '.xor')
+                  .gsub(/not/, '!')
   end
 
   def parse
-    @variables = sentence.words
+    @variables = sentence.words.reject do |var|
+      %w[and or then if_and_only_if xor not].include?(var)
+    end
   end
 
   def evaluate
@@ -52,6 +50,6 @@ class Proposition
   end
 
   def amount_of_variables
-    2**variables.length
+    2 ** variables.length
   end
 end

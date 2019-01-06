@@ -1,9 +1,8 @@
 require 'rspec'
-require_relative '../lib/logic_analyzer/logic_evaluation'
 require_relative '../lib/logic_analyzer/logical_context'
 require_relative '../lib/logic_analyzer/boolean'
 
-describe 'Logic Evaluation spec' do
+describe 'Logic Context spec' do
   it 'p and q should be false' do
     context = LogicalContext.new
     context.define_premise(:p, true)
