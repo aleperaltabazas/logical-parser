@@ -16,9 +16,9 @@ class Proposition
   def syntax_sugars(sentence)
     sugared = sentence.gsub(/and|&&/, '.and')
                   .gsub(/xor|!=/, '.x0r')
-                  .gsub(/\|\|/, '.or')
+                  .gsub(/or|\|\|/, '.or')
                   .gsub(/only_if|<=>/, '.only_if')
-                  .gsub(/then|>/, '.then')
+                  .gsub(/then|=>/, '.then')
                   .gsub(/not/, '!')
   end
 
