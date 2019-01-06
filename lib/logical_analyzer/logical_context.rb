@@ -1,4 +1,4 @@
-require_relative '../lib/boolean'
+require_relative 'boolean'
 
 class LogicalContext
   def connectors
