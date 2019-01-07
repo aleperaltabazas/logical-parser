@@ -14,12 +14,14 @@ class Proposition
   end
 
   def syntax_sugars(sentence)
-    sugared = sentence.gsub(/and|&&/, '.and')
-                  .gsub(/xor|!=/, '.x0r')
-                  .gsub(/or|\|\|/, '.or')
-                  .gsub(/only_if|<=>/, '.only_if')
-                  .gsub(/then|=>/, '.then')
-                  .gsub(/not/, '!')
+    sentence.gsub(/and|&&/, '.and')
+        .gsub(/xor|!=/, '.x0r')
+        .gsub(/xor|\|\|/, '.or')
+        .gsub(/only_if|<=>/, '.only_if')
+        .gsub(/then|=>/, '.then')
+        .gsub(/not \w+|!\w+/) do |match|
+      "(!#{match.delete('!').gsub('not ', '')})"
+    end
   end
 
   def parse

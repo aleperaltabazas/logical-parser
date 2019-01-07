@@ -14,7 +14,7 @@ describe 'Proposition spec' do
   end
 
   it '(p and q) then p should be true' do
-    prop = Proposition.new('(p && q) > p')
+    prop = Proposition.new('(p && q) => p')
     prop.parse
 
     expect(prop.evaluate).to be_truthy
@@ -39,5 +39,12 @@ describe 'Proposition spec' do
     prop.parse
 
     expect(prop.evaluate).to be_falsey
+  end
+
+  it 'p then !p should be a tautology' do
+    prop = Proposition.new('not p => not p')
+    prop.parse
+
+    expect(prop.evaluate).to be_truthy
   end
 end
